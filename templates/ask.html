@@ -1,0 +1,16 @@
+<div class = 'container'>
+    <h1>Ask a Question</h1>
+    <form role = 'form'>
+        <div class = 'form-group'>
+            <label for="title">Title:</label>
+            <input ng-model='postBody' class='form-control' id="title"/>
+        </div>
+        <div class="form-group">
+            <label for="question">Question:</label>
+            <textarea class="form-control" rows="5" id="question"></textarea>
+        </div>
+        <button ng-click="addPost()" class = 'btn'>
+            Post Question
+        </button>
+    </form>
+</div>
