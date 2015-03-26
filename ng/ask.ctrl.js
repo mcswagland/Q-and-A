@@ -15,7 +15,7 @@ angular.module('app')
                     body: $scope.questionBody
                 })
                 .success(function(question){
-                    $scope.questions.unshift(question)
+                    $scope.$emit('ask');
                     $scope.questionTitle = null
                     $scope.questionBody = null
                 })

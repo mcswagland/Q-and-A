@@ -6,4 +6,7 @@ angular.module('app')
       // Redirect to posts
       $location.path('/');
   })
+    $scope.$on('ask', function(_, user){
+        $location.path('/');
+    })
 }])
