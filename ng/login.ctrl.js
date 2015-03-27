@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('LoginCtrl', function ($scope, UserSvc) {
+.controller('LoginCtrl', ['$scope', '$location', 'UserSvc', function ($scope, $location, UserSvc) {
   $scope.login = function (username, password) {
 
       $scope.errorMsg = '';
@@ -8,9 +8,10 @@ angular.module('app')
     .then(function (user) {
       $scope.$emit('login', user)
     },
-        function(error) {
-            $scope.errorMsg = 'Incorrect username/password.';
-        })
 
+    function(error) {
+        $scope.errorMsg = 'Incorrect username/password.';
+        //$location.path('/register');
+    })
   }
-})
+}])

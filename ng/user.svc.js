@@ -18,9 +18,13 @@ angular.module('app')
   }
   svc.register = function (username, password) {
     return $http.post('/api/users', {
-      username: username, password: password
+    username: username, password: password
     }).then(function () {
-      return svc.login(username, password)
+    return svc.login(username, password)
     })
   }
+    svc.logout = function($localStorage) {
+        //changeUser({});
+        delete $localStorage.token;
+    }
 })

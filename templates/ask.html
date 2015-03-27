@@ -9,8 +9,11 @@
             <label for="question">Question:</label>
             <textarea ng-model='questionBody' class="form-control" rows="5" id="question"></textarea>
         </div>
-        <button ng-click="addQuestion()" class = 'btn'>
+        <button ng-if="currentUser" ng-click="addQuestion()" class = 'btn'>
             Post Question
+        </button>
+        <button ng-if="!currentUser" ng-click="login()" class = 'btn'>
+            Login to Post a Question
         </button>
     </form>
 </div>

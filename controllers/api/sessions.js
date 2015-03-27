@@ -9,13 +9,14 @@ router.post('/sessions', function (req, res, next) {
   User.findOne({username: username})
   .select('password')
   .exec(function (err, user) {
-    if (err) { return next(err) }
-    if (!user) { return res.sendStatus(401) }
-    bcrypt.compare(req.body.password, user.password, function (err, valid) {
       if (err) { return next(err) }
-      if (!valid) { return res.sendStatus(401) }
-      var token = jwt.encode({username: username}, config.secret)
-      res.send(token)
+      if (!user) { return res.sendStatus(401) }
+      bcrypt.compare(req.body.password, user.password, function (err, valid) {
+          if (err) { return next(err) }
+          if (!valid) { return res.sendStatus(401) }
+          var token = jwt.encode({username: username}, config.secret)
+          res.send(token)
+
     })
   })
 })
